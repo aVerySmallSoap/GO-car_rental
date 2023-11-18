@@ -13,4 +13,10 @@ document.querySelector("#form-login").addEventListener("submit", e => {
         }
     });
     xhr.send(JSON.stringify(values));
+    xhr.onload = function (){
+        let json = JSON.parse(xhr.response);
+        if(json.Type === "Success"){
+            window.location.href = "./users.html";
+        }
+    }
 })

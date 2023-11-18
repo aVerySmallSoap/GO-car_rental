@@ -8,7 +8,7 @@ if(notEmpty($request)){
         "Select * from users 
          where user_name = '$request[0]' and user_pass = '$request[1]' and user_type = '$request[2]' ");
     if($result->fetch_array(MYSQLI_NUM) != null){
-        header("location: https://www.facebook.com");
+        echo json_encode(["Type" => "Success"]);
     }else{
         echo json_encode(["Type" => "Error", "Message" => "User does not exist!"]);
     }
